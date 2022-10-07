@@ -13,22 +13,26 @@ def primes(number_of_primes):
     j = 0
     n = 1
     while i < number_of_primes - 2:
-        appended = False
+        appended = True
+        prime = 0
         if j % 2 == 0:
             x = 6*n-1
-            if x % 5 != 0 or x == 5:
-                list.append(x)
-                appended = True
         else:
             x = 6*n+1
-            if x % 5 != 0:
-                list.append(x)
-                appended = True
             n += 1
         
+        k = 0
+        prime = x
+        while k < len(list):
+            if prime % list[k] == 0:
+                appended = False
+            k += 1
+
         if appended:
             i += 1
+            list.append(x)
         j += 1
 
     return list
+
 
